@@ -3,22 +3,18 @@
 ```cpp
 class Solution {
 public:
-    string convert(string s, int numRows) { // 模拟：O(n)
-        if (numRows == 1) return s; // 下面的代码无法处理这种边界情况
-        vector<string> rows(numRows);
-        int direction = -1, i = 0; // direction: 方向, i: 行索引
-        for (auto c : s) {
-            rows[i] += c;
-            if (i == 0 || i == numRows - 1) direction = -direction;
-            i += direction;
+    int reverse(int x) {
+        int res = 0;
+        bool isminus = x < 0;
+        while (x) { // res * 10 + x % 10 < INT_MIN
+            if (isminus && res < (INT_MIN - x % 10) / 10) return 0;
+            if (!isminus && res > (INT_MAX - x % 10) / 10) return 0;
+            res = res * 10 + x % 10;
+            x /= 10;
         }
-      
-        string res;
-        for (auto& t : rows) res += t;
         return res;
     }
 };
-
 ```
 
 本题需要注意以下问题：
