@@ -9,8 +9,8 @@ LeetCode 题目及解法汇总：
 | 6. Z 字形变换             | Medium |                    模拟                    | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00006_Zigzag%20Conversion) |
 | 7. 整数反转               | Medium |                  整数反转                  | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00007_Reverse%20Integer) |
 | 8. 字符串转换整数（atoi） | Medium |                   模拟题                   | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00008_String%20to%20Integer(atoi)) |
-|                           |        |                                            |                                                              |
-|                           |        |                                            |                                                              |
+| 9. 回文数                 |  Easy  |                    数学                    | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00009_Palindrome%20Number) |
+| 11. 盛水最多的容器        | Medium |                    贪心                    | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00011_Container%20With%20Most%20Water) |
 |                           |        |                                            |                                                              |
 |                           |        |                                            |                                                              |
 |                           |        |                                            |                                                              |
