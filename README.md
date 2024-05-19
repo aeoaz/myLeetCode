@@ -1,6 +1,6 @@
 LeetCode 题目及解法汇总：
 
-| 题目                               |  难度  |                            知识点                            | 解法                                                         |
+| 题目                               |  难度  |                             方法                             | 代码                                                         |
 | ---------------------------------- | :----: | :----------------------------------------------------------: | ------------------------------------------------------------ |
 | 1. 两数之和                        |  Easy  |                            哈希表                            | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00001_Two%20Sum) |
 | 2. 两数相加                        | Medium |                          高精度加法                          | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00002_Add%20Two%20Numbers) |
