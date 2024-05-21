@@ -42,19 +42,19 @@ LeetCode 题目及解法汇总：
 | 40. 组合总和 II                                | Medium |                       DFS + prev 去重                        | 注意使用 prev 之前要先排序。                                 | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00040_Combination%20Sum%20II) |
 | 41. 缺失的第一个正数                           |  Hard  |                           同秩映射                           | 本题的同秩映射要求参与映射的元素的数值位于 1～n 之间。       | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00041_First%20Missing%20Positive) |
 | 42. 接雨水                                     |  Hard  |                        贪心 + 双指针                         |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00042_Trapping%20Rain%20Water) |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
-|                                                |        |                                                              |                                                              |                                                              |
+| 43. 字符串相乘                                 | Medium |                高精度乘法（高精度 x 高精度）                 |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00043_Multiply%20Strings) |
+| 44. 通配符匹配                                 |  Hard  |                     动态规划 + 状态优化                      |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00044_Wildcard%20Matching) |
+| 45. 跳跃游戏 II                                | Medium |                             推理                             |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00045_Jump%20Game%20II) |
+| 46. 全排列                                     | Medium |                          DFS + 回溯                          | 需要用到 `st[]` 数组                                         | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00046_Permutations) |
+| 47. 全排列 II                                  | Medium |                    DFS + 回溯 + prev 去重                    | 需要用到 `st[]` 数组                                         | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00047_Permutations%20II) |
+| 48. 旋转图像                                   | Medium |                            trick                             | “先右下再竖，等于顺时针旋转 90 度”                           | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00048_Rotate%20Image) |
+| 49. 字母异位词分组                             | Medium |                            哈希表                            |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00049_Group%20Anagrams) |
+| 50. Pow(x, n)                                  | Medium |                            快速幂                            |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00050_Pow(x%2C%20n)) |
+| 51. N 皇后                                     |  Hard  |                    二维表格型 DFS + 回溯                     |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00051_N-Queens) |
+| 52. N 皇后 II                                  |  Hard  |                    二维表格型 DFS + 回溯                     | 不需要再填写棋盘                                             | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00052_N-Queens%20II) |
+| 53. 最大子数组和                               | Medium |                           动态规划                           |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00053_Maximum%20Subarray) |
+| 54. 螺旋矩阵                                   | Medium |                        方向数组的应用                        | （1）注意总共循环 n*m 步；<br />（2）先试探性地走，如果不对的话再纠正。 | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00054_Spiral%20Matrix) |
+| 55. 跳跃游戏                                   | Medium |                       推理（同 45 题）                       |                                                              | [GitHub](https://github.com/aeoaz/myLeetCode/tree/main/Problems/00055_Jump%20Game) |
 |                                                |        |                                                              |                                                              |                                                              |
 |                                                |        |                                                              |                                                              |                                                              |
 |                                                |        |                                                              |                                                              |                                                              |
@@ -102,3 +102,18 @@ LeetCode 题目及解法汇总：
 |                                                |        |                                                              |                                                              |                                                              |
 |                                                |        |                                                              |                                                              |                                                              |
 
+
+
+（第 10 题和第 44 题是一类问题，都是“动态规划 + 状态优化”）
+
+（第 3 题、第 30 题、第 76 题是一类问题，都是“滑动窗”）
+
+（第 20 题、第 32 题都是“栈在括号匹配问题中的应用”）
+
+（第 2 题、第 43 题都是“高精度运算”，其中第 2 题是高精度加法，第 43 题是高精度 x 高精度）
+
+（第 15 题、第 16 题、第 18 题都是“双指针”）
+
+（第 17 题、第 22 题、第 39 题、第 40 题、第 37 题 都是“DFS + 回溯”）
+
+（第 33 题、第 34 题、第 35 题是“二分”）
