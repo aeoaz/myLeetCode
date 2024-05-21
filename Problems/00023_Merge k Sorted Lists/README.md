@@ -14,18 +14,17 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        auto dummy = new ListNode(-1), p = dummy;
         using PIL = pair<int, ListNode*>;
-        priority_queue<PIL, vector<PIL>, greater<PIL>> heap; // val, index
-        for (auto lis : lists) {
-            if (lis) heap.push({lis->val, lis});
+        priority_queue<PIL, vector<PIL>, greater<PIL>> heap;
+        for (auto l : lists) {
+            if (l) heap.push({l->val, l});
         }
+
+        auto dummy = new ListNode(-1), p = dummy;
         while (!heap.empty()) {
-            auto [val, t] = heap.top();
-            heap.pop();
-            p = p->next = t; // 注意：尾插法中p指针要跟着往后移
-            t = t->next;
-            if(t) heap.push({t->val, t});
+            auto [val, node] = heap.top(); heap.pop();
+            p = p->next = node; // 注意：尾插法中p指针要跟着往后移
+            if (node->next) heap.push({node->next->val, node->next});
         }
         auto res = dummy->next;
         delete dummy;
