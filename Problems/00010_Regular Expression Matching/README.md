@@ -5,40 +5,25 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         int n = s.size(), m = p.size();
-        vector<vector<bool>> dp(n + 1, vector<bool>(m + 1));
         s = ' ' + s, p = ' ' + p;
-        dp[0][0] = true;
-        for (int i = 0; i <= n; i++) { // i要从0开始，因为空串也有可能被匹配，如s="", p="a*"
-            for (int j = 1; j <= m; j++) { // j要从1开始，因为dp[0][0]已被初始化，而且非空串必然不可能被空串匹配
-                // 加上p[j] != '*'是为了处理s="aa***b"的情况
-                if (j + 1 <= m && p[j] != '*' && p[j + 1] == '*') continue; // 注意"a*"是一个整体，只有遍历到"*"的时候才能决定这一整体该怎么用
-                if (i && p[j] != '*') // 注意这里的限制：p[j]不为'*'时，i必须大于0
-                    dp[i][j] = dp[i - 1][j - 1] && (s[i] == p[j] || p[j] == '.');
-                else if (p[j] == '*') // p[j] == '*'时无需限制i大于0
-                    dp[i][j] = dp[i][j - 2] || i && dp[i - 1][j] && (s[i] == p[j - 1] || p[j - 1] == '.'); // 注意在使用dp[i-1]之前必须保证i > 0
+        vector<vector<bool>> dp(n + 1, vector<bool>(m + 1));
+        for (int i = 0; i <= n; i++) 
+            for (int j = 0; j <= m; j++) {
+                if (!i && !j) dp[i][j] = true;
+                else if (i && !j) dp[i][j] = false;
+                else {
+                    if (canMatch(s[i], p[j])) dp[i][j] = i && dp[i - 1][j - 1];
+                    else if (p[j] == '*') dp[i][j] = dp[i][j - 2] || i && canMatch(s[i], p[j - 1]) && dp[i - 1][j];
+                }
             }
-        }
+                
         return dp[n][m];
     }
+
+    bool canMatch(char s, char p) {
+        return s == p || p == '.';
+    }
 };
-// 动态规划：
-// if (p[j] == '*'):
-// 注意：p串每次都是去掉两个字符："a*"，故p串的状态直接由dp[j]转移至dp[j - 2]
-// 情况1: "a*"这一组合有可能一次也不用: dp[i][j] = dp[i][j - 2];
-// 情况2: "a*"这一组合有可能只使用一次，即"a*" = "a"，此时会匹配掉s串的末尾1个字符: dp[i][j] = dp[i - 1][j - 2] && s[i] == p[j - 1];
-// 情况3: "a*"这一组合使用两次，即"a*" = "aa"，此时会匹配掉s串的末尾2个字符：dp[i][j] = dp[i - 2][j - 2] && s[i] == p[j - 1] && s[i - 1] == p[j - 1];
-// 情况4: 使用三次: dp[i][j] = dp[i - 3][j - 2] && s[i] == p[j - 1] && s[i - 1] == p[j - 1] && s[i - 2] == p[j - 1];
-// ......
-
-// 记s[i] = "s[i] == p[j - 1]", s[i - 1] = "s[i - 1] == p[j - 1]", ..., 则：
-// 综上：dp[i][j] = dp[i][j-2] || dp[i-1][j-2] && s[i] || dp[i-2][j-2] && s[i] && s[i-1] || dp[i-3][j-2] && s[i] && s[i-1] && s[i-2] || ...
-
-// 状态优化：考虑dp[i - 1][j]，则：
-// dp[i-1][j] = dp[i-1][j-2] || dp[i-2][j-2] && s[i-1] || dp[i-3][j-2] && s[i-1] && s[i-2] || dp[i-4][j-2] && s[i-1] && s[i-2] && s[i-3] || ...
-
-// 由此可得：
-// dp[i][j] = dp[i][j-2] || dp[i-1][j] && s[i] == p[j-1]
-
 ```
 
 时间复杂度：$O(n^2)$（若不进行状态优化，则时间复杂度是 $O(n^3)$）
